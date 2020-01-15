@@ -48,7 +48,7 @@ import { useSubscription } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 
 const SUB_AUTHORS= gql`
-subscription author{
+subscription {
   author{
     id
     name
@@ -78,17 +78,9 @@ export default AuthorList;
 ```js
 // src/pages/index.js
 import React from "react";
-
-import AddAuthor from "../components/AddAuthor";
 import AuthorList from "../components/AuthorList";
 
-const Index = () => (
-  <div>
-    <h1>My Authors</h1>
-    <AddAuthor />
-    <AuthorList />
-  </div>
-);
+const Index = () => <AuthorList />;
 
 export default Index;
 ```
