@@ -11,8 +11,8 @@ module.exports = {
         typeName: "HASURA",
         fieldName: "hasura", // <- fieldName under which schema will be stitched
         url: process.env.GATSBY_HASURA_GRAPHQL_URL,
-        refetchInterval: 10 // Refresh every 10 seconds for new data
-      }
+        refetchInterval: 10, // Refresh every 10 seconds for new data
+      },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,

@@ -4,7 +4,7 @@ import { gql } from "apollo-boost";
 
 const SUB_AUTHORS= gql`
 subscription author{
-  author{
+  author(order_by: {id: asc}){
     id
     name
   }
