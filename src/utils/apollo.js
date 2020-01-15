@@ -1,16 +1,14 @@
-import { ApolloClient } from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { WebSocketLink } from "apollo-link-ws"
-import ws from "ws"
-import { ApolloLink } from "apollo-link"
+import { split } from "apollo-link"
 import { HttpLink } from "apollo-link-http"
-import { split } from 'apollo-link'
-import { getMainDefinition } from 'apollo-utilities'
+import { WebSocketLink } from "apollo-link-ws"
+import { getMainDefinition } from "apollo-utilities"
+import { ApolloClient } from "apollo-client"
+import { InMemoryCache } from "apollo-cache-inmemory"
+import ws from "ws"
 
 /**
  * Websocket
  */
-
 const wsLink = new WebSocketLink({
   uri: "wss://gatsby-test-postgres.herokuapp.com/v1/graphql",
   options: {
@@ -29,13 +27,13 @@ const httpLink = new HttpLink({
 const link = split(
   ({ query }) => {
     const { kind, operation } = getMainDefinition(query)
-    return kind === 'OperationDefinition' && operation === 'subscription'
+    return kind === "OperationDefinition" && operation === "subscription"
   },
   wsLink,
   httpLink
 )
 
 export const client = new ApolloClient({
-  link,//: ApolloLink.from([httpLink, wsLink]),
-  cache: new InMemoryCache()
+  link,
+  cache: new InMemoryCache(),
 })
