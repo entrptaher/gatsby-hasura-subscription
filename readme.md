@@ -31,7 +31,7 @@ module.exports = {
       options: {
         typeName: "HASURA",
         fieldName: "hasura", // <- fieldName under which schema will be stitched
-        url: "wss://gatsby-test-postgres.herokuapp.com/v1/graphql",
+        url: "https://gatsby-test-postgres.herokuapp.com/v1/graphql",
         refetchInterval: 10, // Refresh every 10 seconds for new data
       },
     },
