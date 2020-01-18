@@ -7,6 +7,14 @@ You will get a link like following,
 - The console to control everything `https://gatsby-test-postgres.herokuapp.com/console`
 - The actual graphql Endpoint: `https://gatsby-test-postgres.herokuapp.com/v1/graphql`
 
+# Short way
+
+```
+clone this repo
+yarn install
+gatsby develop
+```
+
 # Create Gatsby Project
 ```
 gatsby new myproject
