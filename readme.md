@@ -1,10 +1,16 @@
 # Setup Hasura
 
-- https://hasura.io/ => Try it with Heroku
-- https://heroku.com/deploy?template=https://github.com/hasura/graphql-engine-heroku
-- https://gatsby-test-postgres.herokuapp.com/console
-- https://gatsby-test-postgres.herokuapp.com/v1/graphql
-- https://github.com/hasura/graphql-engine/tree/master/community/sample-apps/gatsby-postgres-graphql
+- Open https://hasura.io/ and click **Try it with Heroku**
+- `https://heroku.com/deploy?template=https://github.com/hasura/graphql-engine-heroku`
+
+You will get a link like following,
+- The console to control everything `https://gatsby-test-postgres.herokuapp.com/console`
+- The actual graphql Endpoint: `https://gatsby-test-postgres.herokuapp.com/v1/graphql`
+
+# Create Gatsby Project
+```
+gatsby new myproject
+```
 
 # Add dependencies
 
@@ -12,6 +18,8 @@
 yarn install
 yarn add apollo-link-ws apollo-boost apollo-cache-inmemory @apollo/react-hooks
 ```
+
+Then remove all existing components to cleanup.
 
 # Add gatsby plugin
 
@@ -23,7 +31,7 @@ module.exports = {
       options: {
         typeName: "HASURA",
         fieldName: "hasura", // <- fieldName under which schema will be stitched
-        url: process.env.GATSBY_HASURA_GRAPHQL_URL,
+        url: "wss://gatsby-test-postgres.herokuapp.com/v1/graphql",
         refetchInterval: 10, // Refresh every 10 seconds for new data
       },
     },
@@ -114,3 +122,6 @@ const Index = () => <AuthorList />
 
 export default Index
 ```
+
+Additional Resources:
+- https://github.com/hasura/graphql-engine/tree/master/community/sample-apps/gatsby-postgres-graphql
