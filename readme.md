@@ -14,13 +14,13 @@ clone this repo
 yarn install
 gatsby develop
 ```
-
-# Create Gatsby Project
+# Long Way
+## Create Gatsby Project
 ```
 gatsby new myproject
 ```
 
-# Add dependencies
+## Add dependencies
 
 ```
 yarn install
@@ -29,7 +29,7 @@ yarn add apollo-link-ws apollo-boost apollo-cache-inmemory @apollo/react-hooks
 
 Then remove all existing components to cleanup.
 
-# Add gatsby plugin
+## Add gatsby plugin
 
 ```js
 module.exports = {
@@ -47,7 +47,7 @@ module.exports = {
 }
 ```
 
-# Create the client
+## Create the client
 
 ```js
 // src/utils/apollo.js
@@ -68,7 +68,7 @@ export const client = new ApolloClient({
 })
 ```
 
-# Create the provider
+## Create the provider
 
 ```js
 // gatsby-browser.js
@@ -81,7 +81,7 @@ export const wrapRootElement = ({ element }) => (
 )
 ```
 
-# Add subscription to component
+## Add subscription to component
 
 ```js
 // src/components/AuthorList.js
@@ -119,7 +119,7 @@ const AuthorList = () => {
 export default AuthorList
 ```
 
-# Show the component
+## Show the component
 
 ```js
 // src/pages/index.js
